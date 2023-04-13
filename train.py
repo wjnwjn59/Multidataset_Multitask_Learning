@@ -69,8 +69,8 @@ def train(
 
             scheduler.step()
             
-            running_items += inputs.size(0)
-            train_loss += loss.item() * inputs.size(0)
+            running_items += images.size(0)
+            train_loss += loss.item() * images.size(0)
             
         train_loss = train_loss / running_items
         
@@ -108,9 +108,9 @@ def train(
                 
                 loss = task1_loss * 0.5 + task2_loss * 0.5
 
-                running_items += inputs.size(0)
+                running_items += images.size(0)
             
-                val_loss += loss.item() * inputs.size(0)
+                val_loss += loss.item() * images.size(0)
                 
         val_loss = val_loss / running_items
         
