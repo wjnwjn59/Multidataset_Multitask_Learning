@@ -97,8 +97,6 @@ def train(
 
                     task1_loss = task1_criterion(task1_outputs, task1_labels)
 
-                    print('Task 1: ', task1_loss)
-
                 if task2_mask.any():
                     task2_images = images[task2_mask]
                     task2_labels = labels[task2_mask]
