@@ -123,26 +123,22 @@ def main():
     	'--epochs', 
     	type=int, 
         default=50,
-    	required=True, 
     	help='number of iteration'
     )
     parser.add_argument(
     	'--learning_rate', 
     	type=float, 
         default=1e-5,
-    	required=True, 
     )
     parser.add_argument(
     	'--batch_size', 
     	type=int, 
         default=64,
-    	required=True, 
     )
     parser.add_argument(
     	'--config_path', 
     	type=str, 
         default='./cfg/config.yml',
-    	required=True, 
     	help='path to the hyperparameter config file'
     )
     args = parser.parse_args()
