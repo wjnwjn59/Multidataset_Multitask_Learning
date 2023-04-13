@@ -1,1 +1,5 @@
 __pycache__
+
+# From MAC
+.DS_Store
+__MACOSX
