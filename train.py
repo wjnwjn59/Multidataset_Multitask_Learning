@@ -144,7 +144,7 @@ def main():
     args = parser.parse_args()
 
 
-    with open(args, 'r') as f:
+    with open(args.config_path, 'r') as f:
         CONFIG = yaml.load(f, Loader=yaml.FullLoader)
 
     image_transforms = transforms.Compose([
