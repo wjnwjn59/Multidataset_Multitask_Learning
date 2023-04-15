@@ -2,18 +2,22 @@ import torch.nn as nn
 
 def unfreeze_pretrained(
         model, 
-        n_last_layers=0
+        is_all=True,
+        n_last_layers=3
     ):
-    layers_to_unfreeze = list(model.features.children())[n_last_layers:]
+    modules = list(model.children())
 
-    for layer in layers_to_unfreeze:
-        for param in layer.parameters():
-            param.requires_grad = True
-            
-        if isinstance(layer, nn.Conv2d):
-            nn.init.kaiming_normal_(layer.weight.data)
-            if layer.bias is not None:
-                nn.init.constant_(layer.bias.data, 0)
-        elif isinstance(layer, nn.BatchNorm2d):
-            nn.init.constant_(layer.weight.data, 1)
-            nn.init.constant_(layer.bias.data, 0)
+    if is_all:
+        for i in range(len(modules)-1, -1, -1):
+            if isinstance(modules[i], (nn.Conv2d, nn.Linear)):
+                for param in modules[i].parameters():
+                    param.requires_grad = True
+    else:
+        for i in range(len(modules)-1, -1, -1):
+            if isinstance(modules[i], (nn.Conv2d, nn.Linear)) and (len(modules)-i) <= n_last_layers:
+                for param in modules[i].parameters():
+                    param.requires_grad = True
+            elif isinstance(modules[i], nn.MaxPool2d):
+                break
+    
+    return model
