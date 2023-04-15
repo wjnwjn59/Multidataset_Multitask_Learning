@@ -3,7 +3,7 @@ import os
 from PIL import Image
 from torch.utils.data import Dataset
 
-class Task1Dataset(Dataset):
+class WondersOfWorldDataset(Dataset):
     def __init__(
             self, 
             root_dir,
@@ -40,7 +40,7 @@ class Task1Dataset(Dataset):
         
         return (image, self.task_id), label
 
-class Task2Dataset(Dataset):
+class PizzaNotPizzaDataset(Dataset):
     def __init__(
             self, 
             root_dir,
