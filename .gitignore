@@ -3,3 +3,6 @@ __pycache__
 # From MAC
 .DS_Store
 __MACOSX
+
+# Ignore big dataset file
+./data
