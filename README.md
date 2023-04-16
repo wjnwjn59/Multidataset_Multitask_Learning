@@ -1,7 +1,7 @@
 # Multidataset Multitasking
 
 ## Description
-In this repo, I try to implement a simple network (backbone VGG16) that learn 2 different tasks (currently binary classification and multiclass classification on 2 different datasets). The idea is to have a network that learn multiple computer vision tasks, then use its trained weights as pretrained weights for our main task so that it could outperform tradional initialization methods.
+In this repo, I try to implement a simple neural network (backbone VGG16) in PyTorch that learn 2 different tasks (currently binary classification and multiclass classification on 2 different datasets). The idea is to have a network that learn multiple computer vision tasks, then use its trained weights as pretrained weights for our main task so that it could outperform tradional initialization methods.
 
 ## Installation
 ```
